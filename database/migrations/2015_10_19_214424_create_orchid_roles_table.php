@@ -15,7 +15,7 @@ class CreateOrchidRolesTable extends Migration
             $table->increments('id');
             $table->string('slug')->unique();
             $table->string('name');
-            $table->jsonb('permissions')->nullable();
+            $table->text('permissions')->nullable();
             $table->timestamps();
         });
     }
