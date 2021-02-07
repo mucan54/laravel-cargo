@@ -29,10 +29,11 @@ class PlatformProvider extends OrchidServiceProvider
             ItemMenu::label('Kargolarım')
                 ->icon('monitor')
                 ->route('platform.cargo.list')
-                ->title('Kargolarım')
-                ->badge(function () {
-                    return 6;
-                }),
+                ->title('Kargolarım'),
+
+            ItemMenu::label('Örnek Grafikler')
+                ->icon('bar-chart')
+                ->route('platform.example.charts'),
 
         ];
     }
