@@ -13,6 +13,8 @@ use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Alert;
 use App\Models\Cargo;
+use Orchid\Support\Color;
+use Orchid\Screen\TD;
 
 class CargoEditScreen extends Screen
 {
@@ -92,54 +94,73 @@ class CargoEditScreen extends Screen
                 Input::make('cargo.productName')
                     ->title('Ürün Adı')
                     ->placeholder('Ürün Adı')
-                    ->help('Ürün Adı.'),
+                    ->help('Ürün Adı.')
+                    ->horizontal(),
 
                 Input::make('cargo.customerName')
                     ->title('İsim Soyisim')
                     ->placeholder('İsim Soyisim')
-                    ->help('İsim Soyisim'),
+                    ->help('İsim Soyisim')
+                    ->horizontal(),
 
                 Input::make('cargo.phone')
                     ->title('Telefon Numarası')
-                    ->placeholder('Telefon Numarası'),
+                    ->type('tel')
+                    ->value('(555)-555-5555')
+                    ->placeholder('Telefon Numarası')
+                    ->horizontal(),
 
                 Input::make('cargo.il')
                     ->title('İl')
-                    ->placeholder('İl'),
+                    ->placeholder('İl')
+                    ->horizontal(),
 
                 Input::make('cargo.ilce')
                     ->title('İlçe')
-                    ->placeholder('İlçe'),
+                    ->placeholder('İlçe')
+                    ->horizontal(),
 
                 Input::make('cargo.postaKodu')
                     ->title('Posta Kodu')
-                    ->placeholder('Posta Kodu'),
+                    ->placeholder('Posta Kodu')
+                    ->horizontal(),
 
                 Input::make('cargo.kargoFirmasi')
                     ->title('Kargo Firması')
-                    ->placeholder('Kargo Firması'),
+                    ->placeholder('Kargo Firması')
+                    ->horizontal(),
 
                 Input::make('cargo.gonderimSekli')
                     ->title('Gönderim Şekli')
-                    ->placeholder('Gönderim Şekli'),
+                    ->placeholder('Gönderim Şekli')
+                    ->horizontal(),
 
                 Input::make('cargo.tahsilatTutari')
                     ->title('Tahsilat Tutarı')
-                    ->placeholder('Tahsilat Tutarı'),
+                    ->placeholder('Tahsilat Tutarı')
+                    ->horizontal(),
 
                 Input::make('cargo.kargoTipi')
                     ->title('Kargo Tipi')
-                    ->placeholder('Kargo Tipi'),
+                    ->placeholder('Kargo Tipi')
+                    ->horizontal(),
 
                 TextArea::make('cargo.adres')
                     ->title('Adres')
                     ->placeholder('Adres')
                     ->rows(3)
-                    ->maxlength(200),
+                    ->maxlength(200)
+                    ->horizontal(),
 
                 Matrix::make('cargo.desi')
                     ->title('Desi')
-                    ->columns(['Desi'])])
+                    ->columns(['Desi']),
+                
+                    Button::make('Kaydet')
+                    ->method('createOrUpdate')
+                    ->type(Color::DEFAULT())
+                    ->align(TD::ALIGN_RIGHT)
+                ]),
         ];
     }
 

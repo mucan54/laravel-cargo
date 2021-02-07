@@ -109,11 +109,22 @@ Route::screen('example', ExampleScreen::class)
     });
 
 
-Route::screen('cargo/{cargo?}', CargoEditScreen::class)
-    ->name('platform.cargo.edit');
-
 Route::screen('cargos', CargoListScreen::class)
-    ->name('platform.cargo.list');
+    ->name('platform.cargo.list')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->push(__('Kargolar'), route('platform.cargo.list'));
+    });
+
+Route::screen('cargo/{cargo?}', CargoEditScreen::class)
+    ->name('platform.cargo.edit')
+    ->breadcrumbs(function (Trail $trail, $role) {
+        return $trail
+            ->parent('platform.cargo.list')
+            ->push(__('Düzenle'), route('platform.cargo.edit', $role));
+    });
+
+
 
 Route::screen('example-fields', ExampleFieldsScreen::class)->name('platform.example.fields');
 Route::screen('example-layouts', ExampleLayoutsScreen::class)->name('platform.example.layouts');

@@ -6,6 +6,8 @@ use Orchid\Screen\TD;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Layouts\Table;
 use App\Models\Cargo;
+use Orchid\Screen\Actions\Button;
+use Orchid\Screen\Actions\DropDown;
 
 class CargoListLayout extends Table
 {
@@ -41,6 +43,19 @@ class CargoListLayout extends Table
             TD::make('tahsilatTutari', 'Tahsilat Tutarı')->sort()->filter(TD::FILTER_TEXT),
             TD::make('kargoTipi', 'Kargo Tipi')->sort()->filter(TD::FILTER_TEXT),
             TD::make('created_at', 'Tarih')->sort()->filter(TD::FILTER_TEXT),
+            TD::make(__('Actions'))
+                ->align(TD::ALIGN_CENTER)
+                ->width('100px')
+                ->render(function (Cargo $user) {
+                    return DropDown::make()
+                        ->icon('options-vertical')
+                        ->list([
+
+                            Link::make(__('Edit'))
+                                ->route('platform.cargo.edit', $user)
+                                ->icon('pencil'),
+                        ]);
+                })
         ];
     }
 }
