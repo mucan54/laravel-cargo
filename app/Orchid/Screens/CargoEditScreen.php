@@ -90,40 +90,40 @@ class CargoEditScreen extends Screen
     public function layout(): array
     {
         return [
+        Layout::columns([
             Layout::rows([
                 Input::make('cargo.productName')
                     ->title('Ürün Adı')
                     ->placeholder('Ürün Adı')
-                    ->help('Ürün Adı.')
-                    ->horizontal(),
+                    ->help('Ürün Adı.'),
 
                 Input::make('cargo.customerName')
                     ->title('İsim Soyisim')
                     ->placeholder('İsim Soyisim')
-                    ->help('İsim Soyisim')
-                    ->horizontal(),
+                    ->help('İsim Soyisim'),
 
                 Input::make('cargo.phone')
                     ->title('Telefon Numarası')
                     ->type('tel')
                     ->value('(555)-555-5555')
-                    ->placeholder('Telefon Numarası')
-                    ->horizontal(),
-
+                    ->placeholder('Telefon Numarası'),
+                    ]),
+            Layout::rows([
                 Input::make('cargo.il')
                     ->title('İl')
-                    ->placeholder('İl')
-                    ->horizontal(),
+                    ->placeholder('İl'),
 
                 Input::make('cargo.ilce')
                     ->title('İlçe')
-                    ->placeholder('İlçe')
-                    ->horizontal(),
+                    ->placeholder('İlçe'),
 
                 Input::make('cargo.postaKodu')
                     ->title('Posta Kodu')
-                    ->placeholder('Posta Kodu')
-                    ->horizontal(),
+                    ->placeholder('Posta Kodu'),
+                    ]),
+                    ]),
+                
+            Layout::rows([
 
                 Input::make('cargo.kargoFirmasi')
                     ->title('Kargo Firması')
