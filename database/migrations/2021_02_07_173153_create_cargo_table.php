@@ -15,18 +15,18 @@ class CreateCargoTable extends Migration
     {
         Schema::create('cargo', function (Blueprint $table) {
             $table->id();
-            $table->string('productName');
-            $table->string('customerName');
-            $table->string('phone');
-            $table->string('il');
-            $table->string('ilce');
-            $table->string('postaKodu');
-            $table->string('kargoFirmasi');
-            $table->string('gonderimSekli');
-            $table->string('tahsilatTutari');
-            $table->string('kargoTipi');
-            $table->text('adres');
-            $table->text('desi');
+            $table->string('productName')->nullable();
+            $table->string('customerName')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('il')->nullable();
+            $table->string('ilce')->nullable();
+            $table->string('postaKodu')->nullable();
+            $table->string('kargoFirmasi')->nullable();
+            $table->string('gonderimSekli')->nullable();
+            $table->string('tahsilatTutari')->nullable();
+            $table->string('kargoTipi')->nullable();
+            $table->text('adres')->nullable();
+            $table->text('desi')->nullable();
             $table->timestamps();
         });
     }
