@@ -3,6 +3,7 @@
 namespace App\Orchid\Screens;
 
 use App\Orchid\Layouts\CargoListLayout;
+use App\Orchid\Layouts\CargoFiltersLayout;
 use App\Models\Cargo;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
@@ -57,6 +58,8 @@ class CargoListScreen extends Screen
      */
     public function layout(): array
     {
-        return [CargoListLayout::class];
+        return [
+            CargoFiltersLayout::class,
+            CargoListLayout::class];
     }
 }

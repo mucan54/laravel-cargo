@@ -42,7 +42,7 @@ class CargoListLayout extends Table
             TD::make('gonderimSekli', 'Gönderim Şekli')->sort()->filter(TD::FILTER_TEXT),
             TD::make('tahsilatTutari', 'Tahsilat Tutarı')->sort()->filter(TD::FILTER_TEXT),
             TD::make('kargoTipi', 'Kargo Tipi')->sort()->filter(TD::FILTER_TEXT),
-            TD::make('created_at', 'Tarih')->sort()->filter(TD::FILTER_TEXT)->render(function (Cargo $user) {
+            TD::make('created_at', 'Tarih')->sort()->filter(TD::FILTER_DATE)->render(function (Cargo $user) {
                 return date('d-m-Y', strtotime($user->created_at));
             }),
             TD::make(__('Actions'))

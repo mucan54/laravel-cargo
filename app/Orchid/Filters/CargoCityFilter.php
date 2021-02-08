@@ -8,19 +8,19 @@ use Orchid\Screen\Field;
 use Orchid\Screen\Fields\Select;
 use App\Models\Cargo;
 
-class CargoFilter extends Filter
+class CargoCityFilter extends Filter
 {
     /**
      * @var array
      */
-    public $parameters = ['productName'];
+    public $parameters = ['il'];
 
     /**
      * @return string
      */
     public function name(): string
     {
-        return 'Ürün Adı';
+        return 'İl';
     }
 
     /**
@@ -30,7 +30,7 @@ class CargoFilter extends Filter
      */
     public function run(Builder $builder): Builder
     {
-        return $builder->whereIn('productName', $this->request->get('productName'));
+        return $builder->whereIn('il', $this->request->get('il'));
 
     }
 
@@ -40,12 +40,12 @@ class CargoFilter extends Filter
     public function display(): array
     {
         return [
-            Select::make('productName')
-                ->fromModel(Cargo::class, 'productName', 'productName')
+            Select::make('il')
+                ->fromModel(Cargo::class, 'il', 'il')
                 ->empty()
                 ->multiple()
-                ->value($this->request->get('productName'))
-                ->title(__('Ürün Adı')),
+                ->value($this->request->get('il')?$this->request->get('il'):null)
+                ->title(__('İl')),
         ];
     }
 }
