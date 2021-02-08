@@ -4,6 +4,7 @@ namespace App\Orchid\Layouts;
 
 use Orchid\Screen\TD;
 use Orchid\Screen\Actions\Link;
+use Orchid\Screen\Fields\CheckBox;
 use Orchid\Screen\Layouts\Table;
 use App\Models\Cargo;
 use Orchid\Screen\Actions\Button;
@@ -29,6 +30,12 @@ class CargoListLayout extends Table
     protected function columns(): array
     {
         return [
+            TD::set('id')
+            ->render(function (Cargo $user){
+                return CheckBox::make('users[]')
+                    ->value($user->id)
+                    ->checked(false);
+            }),
             TD::make('productName', 'Ürün Adı')->render(function (Cargo $post) {
                 return Link::make($post->productName)
                     ->route('platform.cargo.edit', $post);
