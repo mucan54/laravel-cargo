@@ -105,8 +105,7 @@ class CargoEditScreen extends Screen
                 Input::make('cargo.phone')
                     ->title('Telefon Numarası')
                     ->type('tel')
-                    ->value('(555)-555-5555')
-                    ->placeholder('Telefon Numarası'),
+                    ->placeholder('(555)-555-5555'),
                     ]),
             Layout::rows([
                 Input::make('cargo.il')
