@@ -60,7 +60,7 @@ class CargoListScreen extends Screen
                 ->icon('options-vertical')
                 ->list([
                 Link::make(__('Edit'))
-                        ->route('platform.systems.users.edit',1)
+                        ->route('platform.cargo.list')
                         ->icon('pencil'),
                 Button::make(__('Delete'))
                         ->method('test')
