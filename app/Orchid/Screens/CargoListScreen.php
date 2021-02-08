@@ -14,6 +14,7 @@ use App\Models\User;
 use App\Notifications\TaskCompleted;
 
 
+
 class CargoListScreen extends Screen
 {
     /**
@@ -38,7 +39,9 @@ class CargoListScreen extends Screen
     public function query(): array
     {
         return [
-            'cargos' => Cargo::filters()->defaultSort('id')->paginate()
+            'cargos' => Cargo::filters()
+            ->filtersApplySelection(CargoFiltersLayout::class)
+            ->defaultSort('id')->paginate()
         ];
     }
 
