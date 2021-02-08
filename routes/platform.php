@@ -113,16 +113,15 @@ Route::screen('cargos', CargoListScreen::class)
     ->name('platform.cargo.list')
     ->breadcrumbs(function (Trail $trail) {
         return $trail
-            ->parent('platform.index')
             ->push(__('Kargolar'), route('platform.cargo.list'));
     });
 
 Route::screen('cargo/{cargo?}', CargoEditScreen::class)
     ->name('platform.cargo.edit')
-    ->breadcrumbs(function (Trail $trail, $role) {
+    ->breadcrumbs(function (Trail $trail) {
         return $trail
             ->parent('platform.cargo.list')
-            ->push(__('Düzenle'), route('platform.cargo.edit', $role));
+            ->push(__('Düzenle'), route('platform.cargo.edit'));
     });
 
 
