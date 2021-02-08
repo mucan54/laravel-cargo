@@ -30,7 +30,8 @@ class CargoFilter extends Filter
      */
     public function run(Builder $builder): Builder
     {
-        return $builder->whereIn('productName', $this->request->get('productName'));
+        
+        return $builder->whereIn('productName', explode(',',$this->request->get('productName')[0]));
 
     }
 
@@ -44,7 +45,7 @@ class CargoFilter extends Filter
                 ->fromModel(Cargo::class, 'productName', 'productName')
                 ->empty()
                 ->multiple()
-                ->value($this->request->get('productName'))
+                ->value($this->request->get('productName')?explode(',',$this->request->get('productName')[0]):null)
                 ->title(__('Ürün Adı')),
         ];
     }

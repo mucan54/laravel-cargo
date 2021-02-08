@@ -31,7 +31,7 @@ class CargoCityFilter extends Filter
     public function run(Builder $builder): Builder
     {
 
-        return $builder->whereIn('il', $this->request->get('il'));
+        return $builder->whereIn('il', explode(',',$this->request->get('il')[0]));
 
     }
 
@@ -45,7 +45,7 @@ class CargoCityFilter extends Filter
                 ->fromModel(Cargo::class, 'il', 'il')
                 ->empty()
                 ->multiple()
-                ->value($this->request->get('il')?$this->request->get('il'):null)
+                ->value($this->request->get('il')?explode(',',$this->request->get('il')[0]):null)
                 ->title(__('İl')),
         ];
     }
